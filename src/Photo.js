@@ -2,26 +2,27 @@ import React from "react";
 import styled from "styled-components";
 
 const Img = styled.img`
-  width: 100%;
+  max-width: 100%;
+  max-height: 100%;
 `;
 const Name = styled.h3`
-  margin: 0;
   text-align: center;
   font-weight: bold;
   font-size: 14px;
-  position: relative;
-  bottom: 0;
+  margin: 12px 0 12px 0;
 `;
 
 const Container = styled.div`
-  justify-content: center;
-  line-height: 0;
+  scroll-snap-align: start;
+  height: 90vh;
+  width: 95vw;
 `;
 
 const Photo = ({ src, name }) => {
   return (
     <Container>
       <Img src={src} alt={name} />
+      <Name>{name}</Name>
     </Container>
   );
 };

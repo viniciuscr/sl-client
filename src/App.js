@@ -34,11 +34,16 @@ const iconThemes = theme("mode", {
 
 const Content = styled.div`
   ${contentThemes};
+  height: 90vh;
 `;
 
 const Gallery = styled.div`
-  column-count: 2;
-  column-gap: 0;
+  overflow-y: scroll;
+  height: 90vh;
+  display: flex;
+  flex-wrap: wrap;
+  scroll-snap-type: y proximity;
+  justify-content: center;
 `;
 
 const Icon = styled.img`
@@ -62,6 +67,7 @@ const Menu = styled.div`
   bottom: 0;
   text-align: center;
   display: flex;
+  height: 10vh;
 `;
 
 const MenuButton = styled.button`
@@ -77,54 +83,14 @@ class App extends Component {
           <Content>
             <Gallery>
               <Photo
-                src="https://images.pexels.com/photos/20787/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350"
+                src="https://pbs.twimg.com/media/DVp0LsSVQAEPjkh.jpg:small"
                 name="photo01"
               />
               <Photo
-                src="https://i.pinimg.com/736x/8a/ba/db/8abadb6f03f9ed190aa03cb63b7680e3--pretty-eyes-beautiful-eyes.jpg?b=t"
+                src="https://st03.kakprosto.ru/tumb/680/images/article/2012/3/22/1_52550e1d7368652550e1d736ce.jpg"
                 name="photo01"
               />
-              <Photo
-                src="https://images.pexels.com/photos/20787/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350"
-                name="photo01"
-              />
-              <Photo
-                src="https://images.pexels.com/photos/20787/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350"
-                name="photo01"
-              />
-              <Photo
-                src="https://i.pinimg.com/736x/8a/ba/db/8abadb6f03f9ed190aa03cb63b7680e3--pretty-eyes-beautiful-eyes.jpg?b=t"
-                name="photo01"
-              />
-              <Photo
-                src="https://i.pinimg.com/736x/8a/ba/db/8abadb6f03f9ed190aa03cb63b7680e3--pretty-eyes-beautiful-eyes.jpg?b=t"
-                name="photo01"
-              />
-              <Photo
-                src="https://images.pexels.com/photos/20787/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350"
-                name="photo01"
-              />
-              <Photo
-                src="https://i.pinimg.com/736x/8a/ba/db/8abadb6f03f9ed190aa03cb63b7680e3--pretty-eyes-beautiful-eyes.jpg?b=t"
-                name="photo01"
-              />
-              <Photo
-                src="https://images.pexels.com/photos/20787/pexels-photo.jpg?auto=compress&cs=tinysrgb&h=350"
-                name="photo01"
-              />
-              <Photo
-                src="https://i.pinimg.com/736x/8a/ba/db/8abadb6f03f9ed190aa03cb63b7680e3--pretty-eyes-beautiful-eyes.jpg?b=t"
-                name="photo01"
-              />
-              <Photo
-                src="https://i.pinimg.com/736x/8a/ba/db/8abadb6f03f9ed190aa03cb63b7680e3--pretty-eyes-beautiful-eyes.jpg?b=t"
-                name="photo01"
-              />
-              <Photo
-                src="https://i.pinimg.com/736x/8a/ba/db/8abadb6f03f9ed190aa03cb63b7680e3--pretty-eyes-beautiful-eyes.jpg?b=t"
-                name="photo01"
-              />
-            </Gallery>
+             </Gallery>
           </Content>
           <Menu>
             <MenuButton>
