@@ -1,45 +1,43 @@
 import React, { Component } from "react";
-import styled, { css, ThemeProvider } from "styled-components";
-import theme from "styled-theming";
+import styled, { ThemeProvider } from "styled-components";
 import add from "./assets/002-add.svg";
 import album from "./assets/003-photo-album.svg";
 import save from "./assets/006-sd-card.svg";
 import selection from "./assets/008-focus.svg";
+import settings from "./assets/001-setup.svg";
 import Photo from "./Photo";
+import { contentThemes, iconThemes } from "./Themes";
 
-const contentThemes = theme("mode", {
-  light: css`
-    background-color: #fff;
-    color: #000;
-  `,
-  dark: css`
-    background-color: #2d2a2e;
-    color: #fcfcfa;
-  `,
-  batterySaver: css`
-    background-color: #000;
-    color: #ccc;
-  `
-});
+const Header = styled.div`
+  ${contentThemes};
+  z-index: 1;
+  top: 0;
+  height: 5vh;
+  display: flex;
+  justify-content: flex-end;
+  img {
+    height: 3vh;
+    padding: 1vh;
+  }
+`;
 
-const iconThemes = theme("mode", {
-  light: css``,
-  dark: css`
-    filter: invert(1);
-  `,
-  batterySaver: css`
-    filter: invert(1);
-  `
-});
+const Title = styled.h1`
+  font-size: 14px;
+  margin: 0 0 0 10vw;
+  align-self: center;
+  text-align: center;
+  width: 90vw;
+  text-transform: uppercase;
+`;
 
 const Content = styled.div`
   ${contentThemes};
-  height: 90vh;
+  height: 85vh;
 `;
 
 const Gallery = styled.div`
+  height: 85vh;
   overflow-y: scroll;
-  height: 90vh;
   display: flex;
   flex-wrap: wrap;
   scroll-snap-type: y proximity;
@@ -50,7 +48,7 @@ const Icon = styled.img`
   ${iconThemes};
   width: 20%;
   height: 20%;
-  @media only screen and (max-width: 400px) {
+  @media only screen and (max-width: 420px) {
     width: 50%;
     height: 50%;
   }
@@ -78,8 +76,12 @@ const MenuButton = styled.button`
 class App extends Component {
   render() {
     return (
-      <ThemeProvider theme={{ mode: "light" }}>
+      <ThemeProvider theme={{ mode: "dark" }}>
         <React.Fragment>
+          <Header>
+            <Title>Gatinhos</Title>
+            <img src={settings} alt="settings" />
+          </Header>
           <Content>
             <Gallery>
               <Photo
@@ -90,7 +92,7 @@ class App extends Component {
                 src="https://st03.kakprosto.ru/tumb/680/images/article/2012/3/22/1_52550e1d7368652550e1d736ce.jpg"
                 name="photo01"
               />
-             </Gallery>
+            </Gallery>
           </Content>
           <Menu>
             <MenuButton>
