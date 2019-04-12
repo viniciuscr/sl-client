@@ -2,11 +2,20 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import Overlay from "./Overlay";
 import { contentThemes } from "./Themes";
-
+import selected from "./assets/004-multi-select.svg";
+import { controlRotation } from "./Rotation";
 const Img = styled.img`
   max-width: 100%;
-  max-height: 100%;
+  max-height: 100vh;
   z-index: 0;
+`;
+
+const Selected = styled.img`
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  width: 10vw;
 `;
 
 const Container = styled.div`
@@ -14,10 +23,7 @@ const Container = styled.div`
   scroll-snap-align: start;
   position: relative;
   display: flex;
-  max-height: 85vh;
-  @media only screen and (max-width: 420px) {
-    height: 85vh;
-  }
+  ${controlRotation};
 `;
 
 const Aligner = styled.div`
@@ -26,6 +32,7 @@ const Aligner = styled.div`
 
 const Photo = ({ src, name }) => {
   let [showOverlay, setShowOverlay] = useState(false);
+
   return (
     <Container>
       <Aligner>
@@ -34,6 +41,7 @@ const Photo = ({ src, name }) => {
           src={src}
           alt={name}
         />
+        <Selected src={selected} />
         <Overlay showOverlay={showOverlay} />
       </Aligner>
     </Container>

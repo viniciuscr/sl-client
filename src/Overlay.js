@@ -1,23 +1,23 @@
 import React from "react";
 import styled from "styled-components";
 import { overlayThemes } from "./Themes";
+import { controlRotation } from "./Rotation";
 
 const Overlay = styled.div`
   ${overlayThemes};
+  ${controlRotation}
   display: none;
   color: #000;
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 1;
-  width: 100%;
-  height: 85vh;
+  z-index: 2;
+  width: 100vw;
 `;
 
 const OverlayText = styled.h4`
   ${overlayThemes};
   font-size: 25px;
-  margin: 0 15vw 0% 15vw;
   text-align: center;
   line-height: 6vh;
   text-align: center;

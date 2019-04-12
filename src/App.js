@@ -7,9 +7,11 @@ import selection from "./assets/008-focus.svg";
 import settings from "./assets/001-setup.svg";
 import Photo from "./Photo";
 import { contentThemes, iconThemes } from "./Themes";
+import { controlRotation, controllMenuBar } from "./Rotation";
 
 const Header = styled.div`
   ${contentThemes};
+  ${controllMenuBar};
   z-index: 1;
   top: 0;
   height: 5vh;
@@ -32,11 +34,11 @@ const Title = styled.h1`
 
 const Content = styled.div`
   ${contentThemes};
-  height: 85vh;
+  ${controlRotation};
 `;
 
 const Gallery = styled.div`
-  height: 85vh;
+  ${controlRotation};
   overflow-y: scroll;
   display: flex;
   flex-wrap: wrap;
@@ -60,6 +62,7 @@ const IconText = styled.h2`
 
 const Menu = styled.div`
   ${contentThemes};
+  ${controllMenuBar};
   width: 100vw;
   position: fixed;
   bottom: 0;
@@ -73,14 +76,49 @@ const MenuButton = styled.button`
   border:0;
 `;
 
+const Settings = styled.img`
+  ${iconThemes};
+`;
+
 class App extends Component {
+  constructor() {
+    super();
+    this.updateDimensions = this.updateDimensions.bind(this);
+  }
+
+  updateDimensions() {
+    var w = window,
+      d = document,
+      documentElement = d.documentElement,
+      body = d.getElementsByTagName("body")[0],
+      width = w.innerWidth || documentElement.clientWidth || body.clientWidth,
+      height =
+        w.innerHeight || documentElement.clientHeight || body.clientHeight;
+
+    this.setState({ width: width, height: height });
+  }
+  componentWillMount() {
+    this.updateDimensions();
+  }
+  componentDidMount() {
+    window.addEventListener("resize", this.updateDimensions);
+  }
+  componentWillUnmount() {
+    window.removeEventListener("resize", this.updateDimensions);
+  }
+
   render() {
     return (
-      <ThemeProvider theme={{ mode: "dark" }}>
+      <ThemeProvider theme={{ mode: "batterySaver" }}>
         <React.Fragment>
           <Header>
-            <Title>Gatinhos</Title>
-            <img src={settings} alt="settings" />
+            <Title>
+              Gatinhos
+              <span>
+                {this.state.width} x {this.state.height}
+              </span>
+            </Title>
+            <Settings src={settings} alt="settings" />
           </Header>
           <Content>
             <Gallery>
