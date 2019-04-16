@@ -6,6 +6,13 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  --pink: #ff6188;
+  --green: #a9dc76;
+  --yellow: #ffd866;
+  --orange: #fc9867;
+  --purple: #ab9df2;
+  --blue: #78dce8;
 }
 
 code {

@@ -12,6 +12,7 @@ import { controlRotation, controllMenuBar } from "./Rotation";
 const Header = styled.div`
   ${contentThemes};
   ${controllMenuBar};
+  border-bottom: 1px solid #ccc;
   z-index: 1;
   top: 0;
   height: 5vh;
@@ -42,7 +43,7 @@ const Gallery = styled.div`
   overflow-y: scroll;
   display: flex;
   flex-wrap: wrap;
-  scroll-snap-type: y proximity;
+  scroll-snap-type: y mandatory;
   justify-content: center;
 `;
 
@@ -69,6 +70,7 @@ const Menu = styled.div`
   text-align: center;
   display: flex;
   height: 10vh;
+  border-top: 1px solid #ccc;
 `;
 
 const MenuButton = styled.button`
@@ -109,7 +111,7 @@ class App extends Component {
 
   render() {
     return (
-      <ThemeProvider theme={{ mode: "batterySaver" }}>
+      <ThemeProvider theme={{ mode: "light" }}>
         <React.Fragment>
           <Header>
             <Title>
@@ -122,12 +124,24 @@ class App extends Component {
           </Header>
           <Content>
             <Gallery>
+              <Photo src="/uploads/DVp0LsSVQAEPjkh.jpg" name="photo01" />
               <Photo
-                src="https://pbs.twimg.com/media/DVp0LsSVQAEPjkh.jpg:small"
+                src="/uploads/1_52550e1d7368652550e1d736ce.jpg"
                 name="photo01"
               />
+              <Photo src="/uploads/DVp0LsSVQAEPjkh.jpg" name="photo01" />
               <Photo
-                src="https://st03.kakprosto.ru/tumb/680/images/article/2012/3/22/1_52550e1d7368652550e1d736ce.jpg"
+                src="/uploads/1_52550e1d7368652550e1d736ce.jpg"
+                name="photo01"
+              />
+              <Photo src="/uploads/DVp0LsSVQAEPjkh.jpg" name="photo01" />
+              <Photo
+                src="/uploads/1_52550e1d7368652550e1d736ce.jpg"
+                name="photo01"
+              />
+              <Photo src="/uploads/DVp0LsSVQAEPjkh.jpg" name="photo01" />
+              <Photo
+                src="/uploads/1_52550e1d7368652550e1d736ce.jpg"
                 name="photo01"
               />
             </Gallery>

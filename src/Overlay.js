@@ -9,7 +9,6 @@ const Overlay = styled.div`
   display: none;
   color: #000;
   position: absolute;
-  top: 0;
   left: 0;
   z-index: 2;
   width: 100vw;
@@ -23,12 +22,30 @@ const OverlayText = styled.h4`
   text-align: center;
 `;
 
+const Stepper = styled.span`
+  & :first-child {
+    border-left: 1px solid;
+    border-bottom: 1px solid;
+    border-top: 1px solid;
+    border-right: 1px solid;
+    border-color: #000;
+  }
+  & :last-child {
+    border-right: 1px solid;
+    border-bottom: 1px solid;
+    border-top: 1px solid;
+    border-left: 0;
+    border-color: #000;
+  }
+`;
+
 const Button = styled.button`
   ${overlayThemes};
   background-color: rgba(0, 0, 0, 0);
-  font-size: 5vh;
-  width: 100%;
-  border: 0;
+  font-weight: 700;
+  border-radius: 0.25em;
+  height: 1.25rem;
+  width: 1.25rem;
   &:hover {
     transition: background-color 0.5s ease;
     background-color: rgba(0, 0, 0, 0.3);
@@ -38,43 +55,28 @@ const Button = styled.button`
   }
 `;
 
-const NumPad = styled.div`
-  column-count: 5;
-  height: 60vh;
-  column-gap: 0;
-  button {
-    height: 20%;
-  }
-  @media only screen and (max-width: 420px) {
-    column-count: 3;
-  }
-`;
-
-const Aligner = styled.div`
-  align-self: center;
+const Sizes = styled.ul`
+  list-style: none;
+  margin: 0;
+  padding: 0;
 `;
 
 const Photo = ({ showOverlay }) => {
   return (
-    <Overlay style={{ display: showOverlay ? "flex" : "none" }}>
-      <Aligner>
-        <OverlayText>Escolha quantidade de copias</OverlayText>
-        <NumPad>
-          <Button>1</Button>
-          <Button>2</Button>
-          <Button>3</Button>
-          <Button>4</Button>
-          <Button>5</Button>
-          <Button>6</Button>
-          <Button>7</Button>
-          <Button>8</Button>
-          <Button>9</Button>
-          <Button>10</Button>
-          <Button>11</Button>
-          <Button>12</Button>
-        </NumPad>
-        <Button>Cancelar</Button>
-      </Aligner>
+    <Overlay style={{ display: showOverlay ? "block" : "none" }}>
+      <OverlayText>Escolha quantidade de copias</OverlayText>
+      <Sizes>
+        <li>
+          10X15 nenhuma cópia
+          <Stepper>
+            <Button>&#65291;</Button>
+            <Button>&#65293;</Button>
+          </Stepper>
+        </li>
+        <li>13x18</li>
+        <li>15x21</li>
+        <li>20x25</li>
+      </Sizes>
     </Overlay>
   );
 };
