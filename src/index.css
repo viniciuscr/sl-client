@@ -13,9 +13,5 @@ body {
   --orange: #fc9867;
   --purple: #ab9df2;
   --blue: #78dce8;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+  --gray: #adadad;
 }

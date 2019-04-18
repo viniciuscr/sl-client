@@ -28,15 +28,15 @@ export const iconThemes = theme("mode", {
 
 export const overlayThemes = theme("mode", {
   light: css`
-    background-color: rgba(255, 255, 255, 0.92);
+    background-color: rgba(255, 255, 255, 0.96);
     color: #000;
   `,
   dark: css`
-    background-color: rgba(45, 42, 46, 0.92);
+    background-color: rgba(45, 42, 46, 0.96);
     color: #fcfcfa;
   `,
   batterySaver: css`
-    background-color: rgba(0, 0, 0, 0.92);
+    background-color: rgba(0, 0, 0, 0.96);
     color: #ccc;
   `
 });

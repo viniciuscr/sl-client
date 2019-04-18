@@ -10,42 +10,19 @@ const Overlay = styled.div`
   color: #000;
   position: absolute;
   left: 0;
+  top: 0;
   z-index: 2;
   width: 100vw;
 `;
 
 const OverlayText = styled.h4`
   ${overlayThemes};
-  font-size: 25px;
-  text-align: center;
-  line-height: 6vh;
-  text-align: center;
-`;
-
-const Stepper = styled.span`
-  & :first-child {
-    border-left: 1px solid;
-    border-bottom: 1px solid;
-    border-top: 1px solid;
-    border-right: 1px solid;
-    border-color: #000;
-  }
-  & :last-child {
-    border-right: 1px solid;
-    border-bottom: 1px solid;
-    border-top: 1px solid;
-    border-left: 0;
-    border-color: #000;
-  }
 `;
 
 const Button = styled.button`
   ${overlayThemes};
-  background-color: rgba(0, 0, 0, 0);
-  font-weight: 700;
-  border-radius: 0.25em;
-  height: 1.25rem;
-  width: 1.25rem;
+  height: 2rem;
+  width: 2rem;
   &:hover {
     transition: background-color 0.5s ease;
     background-color: rgba(0, 0, 0, 0.3);
@@ -55,28 +32,110 @@ const Button = styled.button`
   }
 `;
 
-const Sizes = styled.ul`
-  list-style: none;
-  margin: 0;
-  padding: 0;
+const Row = styled.main`
+  ${overlayThemes};
+  padding: 10px 0;
+  margin: 0.5rem;
+  position: relative;
+  border-bottom: 2px solid #dadada;
+
+  & > ul {
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  & > ul li {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+    list-style: none;
+    box-sizing: border-box;
+  }
+
+  .title li {
+    font-size: 1rem;
+    font-weight: normal;
+  }
+`;
+
+const Stepper = styled.span`
+  margin: 0.5rem;
+  & :first-child {
+    border: 2px solid;
+    border-radius: 0.55rem 0 0 0.55rem;
+    border-color: #adadad;
+  }
+  & :last-child {
+    border-right: 2px solid;
+    border-bottom: 2px solid;
+    border-top: 2px solid;
+    border-left: 0;
+    border-radius: 0 0.55rem 0.55rem 0;
+    border-color: #adadad;
+  }
 `;
 
 const Photo = ({ showOverlay }) => {
   return (
     <Overlay style={{ display: showOverlay ? "block" : "none" }}>
       <OverlayText>Escolha quantidade de copias</OverlayText>
-      <Sizes>
-        <li>
-          10X15 nenhuma cópia
-          <Stepper>
-            <Button>&#65291;</Button>
-            <Button>&#65293;</Button>
-          </Stepper>
-        </li>
-        <li>13x18</li>
-        <li>15x21</li>
-        <li>20x25</li>
-      </Sizes>
+      <Row>
+        <ul style={{ borderLeft: "3px solid var(--gray)" }} class="title">
+          <li>Tamanho</li>
+          <li>Quantidade</li>
+          <li />
+        </ul>
+      </Row>
+      <Row>
+        <ul style={{ borderLeft: "3px solid var(--green)" }}>
+          <li>10x15</li>
+          <li>0</li>
+          <li>
+            <Stepper>
+              <Button>&#65291;</Button>
+              <Button>&#65293;</Button>
+            </Stepper>
+          </li>
+        </ul>
+      </Row>
+      <Row>
+        <ul style={{ borderLeft: "3px solid var(--purple)" }}>
+          <li>13x18</li>
+          <li>0</li>
+          <li>
+            <Stepper>
+              <Button>&#65291;</Button>
+              <Button>&#65293;</Button>
+            </Stepper>
+          </li>
+        </ul>
+      </Row>
+      <Row>
+        <ul style={{ borderLeft: "3px solid var(--yellow)" }}>
+          <li>15x21</li>
+          <li>0</li>
+          <li>
+            <Stepper>
+              <Button>&#65291;</Button>
+              <Button>&#65293;</Button>
+            </Stepper>
+          </li>
+        </ul>
+      </Row>
+      <Row>
+        <ul style={{ borderLeft: "3px solid var(--pink)" }}>
+          <li>30x40</li>
+          <li>0</li>
+          <li>
+            <Stepper>
+              <Button>&#65291;</Button>
+              <Button>&#65293;</Button>
+            </Stepper>
+          </li>
+        </ul>
+      </Row>
+      <Button>Pronto</Button>
     </Overlay>
   );
 };
