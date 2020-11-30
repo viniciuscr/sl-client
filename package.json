@@ -36,6 +36,6 @@
     "@types/styled-components": "^4.4.3",
     "@types/styled-theming": "^2.2.0",
     "eslint-plugin-prettier": "^3.0.1",
-    "prettier": "^1.16.4"
+    "prettier": "^2.2.1"
   }
 }
